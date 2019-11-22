@@ -1,126 +1,107 @@
-import React from "react"
+import { graphql } from 'gatsby'
+import React from 'react'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import featureImage from "../../static/images/hero.png";
-import thumbnailEvent from "../../static/images/feature-event.png"
-import thumbnailBoard from "../../static/images/feature-board.png"
-import thumbnailNews from "../../static/images/feature-news.png"
-import thumbnailTeams from "../../static/images/feature-team.png"
-import thumbnailStaff from "../../static/images/feature-user.png"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Partners from '../components/partners'
+import Gallery from '@browniebroke/gatsby-image-gallery'
+import '@browniebroke/gatsby-image-gallery/dist/style.css'
+import Fade from 'react-reveal/Fade';
 
-const IndexPage = () => (
+import featureImage from "../../static/images/logo copy.png";
+import bandeau from "../../static/images/bandeau.png";
+import spotify from "../../static/images/icon-spotify.svg";
+
+
+const IndexPage = ({ data }) => {
+  const fullSize = data.images.edges.map(edge => edge.node.full.fluid.src)
+  const thumbs = data.images.edges.map(edge => edge.node.thumb.fluid)
+  return (
     <Layout>
-        <SEO title="Make your Staff and Workspace Happy"/>
-
-        <div className={"page-header home"}>
-            <h1>Make your Staff and Workspace Happy</h1>
-            <p>HiStaff gives your complex the opportunity to increase the percentage of happiness<br/>and enjoyment of your staff and as a result, bring productivity to your workspace.</p>
+      <SEO title="Accueil" />
+      <div className={"page-header home"}>
+            <Fade bottom>
             <img alt={"Dashboard"} src={featureImage}/>
-        </div>
-
-        <div className={"container"}>
-            <div className={"features"}>
-                <div className={"feature__item"}>
-                    <div className={"row"}>
-                        <div className={"col-6 first"}>
-                            <div className={"thumbnail"}>
-                                <img alt={"Event"} src={thumbnailEvent}/>
-                            </div>
-                        </div>
-
-                        <div className={"col-6"}>
-                            <div className={"feature__content"}>
-                                <h2>Create and Join Events</h2>
-                                <p>Save your time and energy by letting HiStaff to manage your events (handle the colleague’s birthday, gathering, etc.)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={"feature__item"}>
-                    <div className={"row"}>
-                        <div className={"col-6"}>
-                            <div className={"feature__content"}>
-                                <h2>Public Board</h2>
-                                <p>Let the staff write down on the board freely,<br/>Joking with each other and writing cool content can make the workplace more diverse and attractive for employees. </p>
-                            </div>
-                        </div>
-
-                        <div className={"col-6 first"}>
-                            <div className={"thumbnail"}>
-                                <img alt={"Board"} src={thumbnailBoard}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={"feature__item"}>
-                    <div className={"row"}>
-                        <div className={"col-6 first"}>
-                            <div className={"thumbnail"}>
-                                <img alt={"News"} src={thumbnailNews}/>
-                            </div>
-                        </div>
-
-                        <div className={"col-6"}>
-                            <div className={"feature__content"}>
-                                <h2>Internal News</h2>
-                                <p>Get rid of sending news by e-mail and its problems; post the news in an internal and attractive format via HiStaff instead.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={"feature__item"}>
-                    <div className={"row"}>
-                        <div className={"col-6"}>
-                            <div className={"feature__content"}>
-                                <h2>Teams</h2>
-                                <p>HiStaff let you add staff in specific teams and manage them easily.</p>
-                            </div>
-                        </div>
-
-                        <div className={"col-6 first"}>
-                            <div className={"thumbnail"}>
-                                <img alt={"Team"} src={thumbnailTeams}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={"feature__item"}>
-                    <div className={"row"}>
-                        <div className={"col-6 first"}>
-                            <div className={"thumbnail"}>
-                                <img alt={"Users"} src={thumbnailStaff}/>
-                            </div>
-                        </div>
-
-                        <div className={"col-6"}>
-                            <div className={"feature__content"}>
-                                <h2>Staff management</h2>
-                                <p>Discard traditional ways to archive staff documents and information, and try new ways to store and archive them in HiStaff easily.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className={"centerText"}>
+            <h1>Rendez-vous en 2020!</h1>
+            <p>On sera de retour les 11-12-13 juin 2020 dans ton Thetford-Les-Mines préféré pour trois jours de gros fun.<br></br>Tu veux pas manquer ça!</p>
             </div>
+            </Fade>
         </div>
+        <Fade bottom>
+        <div className={"bandeau"}>
+            <img alt={"bandeau"} src={bandeau}/>
+        </div>
+        </Fade>
+        <div className={"block centerText"}>
+      <h1>Revivez l'Alternative 2019</h1>
+      <p>En attendant la prochaine édition, revivez les bons moments de l'édition 2019</p>
+      </div>
 
-        <div className={"call-to-action"}>
+      <div className={"galleryDiv"}>
+      <Fade bottom>
+      <Gallery images={fullSize} thumbs={thumbs} />
+      </Fade>
+      </div>
+
+      <Fade bottom>
+      <div className={"call-to-action"}>
             <div className={"container"}>
                 <div className={"call-to-action__content"}>
-                    <h2>Sign up for free</h2>
-                    <p>Sign up and start increasing the productivity of your business with HiStaff.</p>
+                    <h1>Écoutez les artistes de l'édition 2019</h1>
                 </div>
 
                 <div className={"button"}>
-                    <a href="https://app.histaff.io" target={"_blank"}>Get Started</a>
+                    <a href="https://open.spotify.com/playlist/7KzkpATGpFXMOPRNQQbSmx?si=hgK9J-HpQ1qUhvWs5OLAow" target={"_blank"}><img alt={"spotify"} src={spotify}/> Écouter</a>
                 </div>
             </div>
         </div>
+        </Fade>
+        <Fade bottom>
+        <div className={"partenaires"}>
+                <div className={"partenaires__content centerText"}>
+                    <h1>Partenaires</h1>
+                    <Partners />
+            </div>
+        </div>
+        </Fade>
+        <Fade bottom>
+        <div className={"row contact"}>
+          <p>Pour communiquer avec nous, veuillez envoyer un courriel à <a href="mailto:lalternative.festival@gmail.com">lalternative.festival@gmail.com</a></p>
+        </div>
+            </Fade>
+
     </Layout>
-)
+  )
+}
+
+export const query = graphql`
+  query ImagesForGallery {
+    images: allFile(
+      filter: { relativeDirectory: { eq: "gallery" } }
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          id
+          thumb: childImageSharp {
+            fluid(maxWidth: 270, maxHeight: 270) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+          full: childImageSharp {
+            fluid(
+              maxWidth: 1024
+              quality: 85
+              srcSetBreakpoints: [576, 768, 992, 1200]
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

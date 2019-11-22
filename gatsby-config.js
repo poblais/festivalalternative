@@ -1,8 +1,8 @@
 module.exports = {
     siteMetadata: {
-        title: `HiStaff`,
-        description: `Make your Staff and Workspace Happy`,
-        author: `@mostafasoufi`,
+        title: `Festival l'Alternative`,
+        description: `Ensemble nous sommes l'alternative`,
+        author: `Pierre-Olivier Blais`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -10,7 +10,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,
-                path: `${__dirname}/static/images`,
+                path: `${__dirname}/src/images`,
             },
         },
         `gatsby-transformer-sharp`,
@@ -24,7 +24,7 @@ module.exports = {
                 background_color: `#663399`,
                 theme_color: `#FF54AC`,
                 display: `minimal-ui`,
-                icon: `${__dirname}/static/images/histaff.png`, // This path is relative to the root of the site.
+                icon: `${__dirname}/static/images/icon.png`, // This path is relative to the root of the site.
             },
         },
         `gatsby-plugin-sass`,
@@ -32,10 +32,10 @@ module.exports = {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 google: {
-                    families: ['PT Serif'],
+                    families: ['Nunito Sans'],
                 },
                 custom: {
-                    families: ['Inter'],
+                    families: ['balboa-plus-fill'],
                     urls: ['/fonts/fonts.css']
                 }
             }

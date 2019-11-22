@@ -2,19 +2,12 @@ import React from "react"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-import SlackHiStaffImage from "../../../static/images/integration/slack-histaff.svg";
-import thumbnailEventWebhook from "../../../static/images/integration/slack-event-webhook.png";
-import thumbnailNewsWebhook from "../../../static/images/integration/slack-news-webhook.png";
-import thumbnailNoteWebhook from "../../../static/images/integration/slack-note-webhook.png";
-import thumbnailGuid1 from "../../../static/images/integration/slack-guid-1.png";
-import thumbnailGuid2 from "../../../static/images/integration/slack-guid-2.png";
 
 const AboutPage = () => (
     <Layout>
         <SEO title="Slack Integration"/>
 
         <div className={"page-header"}>
-            <img src={SlackHiStaffImage}/>
             <h2>HiStaff and Slack</h2>
             <p>HiStaff is excited to announce a new integration with Slack<br />if you use the Slack it can be really efficient for your team.</p>
         </div>
@@ -25,7 +18,6 @@ const AboutPage = () => (
                     <div className={"row"}>
                         <div className={"col-6 first"}>
                             <div className={"thumbnail"}>
-                                <img alt={"Event"} src={thumbnailEventWebhook}/>
                             </div>
                         </div>
 
@@ -49,7 +41,6 @@ const AboutPage = () => (
 
                         <div className={"col-6 first"}>
                             <div className={"thumbnail"}>
-                                <img alt={"Board"} src={thumbnailNewsWebhook}/>
                             </div>
                         </div>
                     </div>
@@ -59,7 +50,6 @@ const AboutPage = () => (
                     <div className={"row"}>
                         <div className={"col-6 first"}>
                             <div className={"thumbnail"}>
-                                <img alt={"News"} src={thumbnailNoteWebhook}/>
                             </div>
                         </div>
 
@@ -86,11 +76,9 @@ const AboutPage = () => (
                         <p>You need to be an admin in order to enable the Slack integration. With the Slack integration, you can send an alert to Slack.</p>
                         <h4>Step 1</h4>
                         <p>Company admin needs to enable the integration one time for the whole company to use.</p>
-                        <img alt={"News"} src={thumbnailGuid1}/>
 
                         <h4>Step 2</h4>
                         <p>Set up your conditions, and press the Update button. You will be able to send a notification to a specific Slack channel or to a specific user.</p>
-                        <img alt={"News"} src={thumbnailGuid2}/>
                     </div>
                 </div>
             </div>
