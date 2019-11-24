@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import {StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "../../static/styles/main.scss"
-import iconFacebook from "../../static/images/icon-Facebook.svg"
+import iconFacebook from "../../static/images/icon-facebook.svg"
 import iconInstagram from "../../static/images/icon-instagram.svg"
 
 const Layout = ({children}) => (
